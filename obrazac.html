@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Svijet pisaca</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="dizajn.css" type="text/css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header>
+			<a href="index.html">
+				<img id="logo" src="slike/logo.jpg" alt="Svijet pisaca logo" />
+			</a>
+			<h1 id="naslov">Svijet pisaca</h1>
+		</header>
+		
+		<nav>
+			<ul>
+				<li><a href="index.html"> POČETNA </a></li>
+				<li><a href="obrazac.html"> PRETRAŽIVANJE </a></li>
+				<li><a href="https://www.fer.unizg.hr/predmet/or" target="_blank"> OTVORENO RAČUNARSTVO </a></li>
+				<li><a href="http://www.fer.unizg.hr" target="_blank"> FER </a></li>
+				<li><a href="mailto:nika.gibanica@fer.hr" target="_blank"> E-MAIL </a></li>
+			</ul>
+		</nav>
+		
+		<div>
+			<form>
+				<table class="obrazac">
+					<tr>
+						<th colspan="2">Pisac</th>
+					</tr>
+					<tr>
+						<td>Ime</td>
+						<td><input type="text" name="ime"></td>
+					</tr>
+					<tr>
+						<td>Prezime</td>
+						<td><input type="text" name="prezime"></td>
+					</tr>
+					<tr>
+						<td>Mjesto</td>
+						<td><input type="text" name="mjesto"></td>
+					</tr>
+					<tr>
+						<td>Država</td>
+						<td><input type="text" name="drzava"></td>
+					</tr>
+					<tr>
+						<td>Nagrada</td>
+						<td><input type="text" name="nagrada"></td>
+					</tr>
+					<tr>
+						<td>Godina dodjele nagrade</td>
+						<td>
+							<select id="godina_nagrade" name="godina_nagrade">
+								<option value="2020">2020</option>
+								<option value="2019">2019</option>
+								<option value="2018">2018</option>
+								<option value="2017">2017</option>
+								<option value="2016">2016</option>
+								<option value="2015">2015</option>
+								<option value="2014">2014</option>
+								<option value="2013">2013</option>
+								<option value="2012">2012</option>
+								<option value="2011">2011</option>
+								<option value="2010">2010</option>
+								<option value="2009">2009</option>
+								<option value="2008">2008</option>
+								<option value="2007">2007</option>
+								<option value="2006">2006</option>
+								<option value="2005">2005</option>
+								<option value="2004">2004</option>
+								<option value="2003">2003</option>
+								<option value="2002">2002</option>
+								<option value="2001">2001</option>
+								<option value="2000">2000</option>
+							</select>
+						</td>
+					</tr>
+				</table>
+				<br>
+				<table class="obrazac">
+					<tr>
+						<th colspan="2">Knjige</th>
+					</tr>
+					<tr>
+						<td>Naslov</td>
+						<td><input type="text" name="naslov"></td>
+					</tr>
+					<tr>
+						<td>Godina izdanja</td>
+						<td>
+							<select id="godina_izdanja" name="godina_izdanja">
+								<option value="2020">2020</option>
+								<option value="2019">2019</option>
+								<option value="2018">2018</option>
+								<option value="2017">2017</option>
+								<option value="2016">2016</option>
+								<option value="2015">2015</option>
+								<option value="2014">2014</option>
+								<option value="2013">2013</option>
+								<option value="2012">2012</option>
+								<option value="2011">2011</option>
+								<option value="2010">2010</option>
+								<option value="2009">2009</option>
+								<option value="2008">2008</option>
+								<option value="2007">2007</option>
+								<option value="2006">2006</option>
+								<option value="2005">2005</option>
+								<option value="2004">2004</option>
+								<option value="2003">2003</option>
+								<option value="2002">2002</option>
+								<option value="2001">2001</option>
+								<option value="2000">2000</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Publika</td>
+						<td>
+							<input type="radio" id="odrasli" name="publika" value="odrasli">
+							<label for="odrasli">Odrasli</label>
+							<input type="radio" name="publika" id="mladi" value="mladi">
+							<label for="mladi">Mladi</label>
+							<input type="radio" name="publika" id="djeca" value="djeca">
+							<label for="djeca">Djeca</label>
+						</td>
+					</tr>
+					<tr>
+						<td>Žanr</td>
+						<td>
+							<input type="checkbox" id="horor" name="zanr" value="horor">
+							<label for="horor">Horor</label>
+							<br>
+							<input type="checkbox" id="ljubavni" name="zanr" value="ljubavni">
+							<label for="ljubavni">Ljubavni roman</label>
+							<br>
+							<input type="checkbox" id="scifi" name="zanr" value="scifi">
+							<label for="scifi">Znanstvena fantastika</label>
+							<br>
+							<input type="checkbox" id="fantazija" name="zanr" value="fantazija">
+							<label for="fantazija">Fantazija</label>
+							<br>
+							<input type="checkbox" id="triler" name="zanr" value="triler">
+							<label for="triler">Triler</label>
+							<br>
+							<input type="checkbox" id="povijesni" name="zanr" value="povijesni">
+							<label for="povijesni">Povijesni roman</label>
+							<br>
+							<input type="checkbox" id="lijepa" name="zanr" value="lijepa">
+							<label for="lijepa">Lijepa književnost</label>
+						</td>
+					</tr>
+					<tr>
+						<td>ISBN</td>
+						<td><input type="text" name="isbn" pattern="[0-9]{13}"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Pretraži">   <input type="reset" value="Odustani"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		
+		<footer>
+			<p>Autor: Nika Gibanica</p>
+		</footer>
+	</body>
+</html>
