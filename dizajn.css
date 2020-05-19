@@ -120,19 +120,17 @@ ul li {
 	color: dimgray;
 }
 
-#nagrade {
+#tablica {
 	text-align: center;
 	margin: 5px 30px 5px 30px;
 }
 
-#nagrade th {
+#tablica th {
 	background-color: dimgray;
 	color: linen;
 }
 
-
-
-#nagrade tr:nth-child(even) {
+#tablica tr:nth-child(even) {
 	background-color: linen;
 }
 
@@ -201,4 +199,3 @@ footer {
 	font-size: 22px;
 	color: white;
 }
-

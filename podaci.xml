@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE pisci SYSTEM "gramatika.dtd">
+<?xml-stylesheet type="text/xsl" href="pretvorba.xsl"?>
+
+<pisci>
+	<pisac id="id0000001" wiki_handle="Stephen_King">
+		<ime>Stephen </ime>
+		<prezime>King</prezime>
+		<web_postoji postoji="1" />
+		<web>stephenking.com</web>
+		<datum_rod>21/09/1947</datum_rod>
+		<mjesto_rod>
+			<mjesto>Portland, Maine</mjesto>
+			<drzava>SAD</drzava>
+		</mjesto_rod>
+		<pseudonim_postoji postoji="1" />
+		<pseudonim>
+			<pseudo_ime>Richard </pseudo_ime>
+			<pseudo_prezime>Bachman</pseudo_prezime>
+		</pseudonim>
+		<knjiga god_izdanja="2018" isbn="9781501180983" zanr="horor triler" publika="odrasli">
+			<naslov>The Outsider</naslov>
+			<nagrada_postoji postoji="1" />
+			<nagrada god_dodjele="2018">Goodreads Choice Award for Mystery and Thriller</nagrada>
+		</knjiga>
+		<knjiga god_izdanja="2018" isbn="9781982102314" zanr="horor fantazija" publika="odrasli">
+			<naslov>Elevation</naslov>
+			<nagrada_postoji postoji="1" />
+			<nagrada god_dodjele="2018">Goodreads Choice Award for Horror</nagrada>
+		</knjiga>
+		<knjiga god_izdanja="2019" isbn="9781982110562" zanr="horor fantazija" publika="odrasli">
+			<naslov>The Institute</naslov>
+			<nagrada_postoji postoji="1" />
+			<nagrada god_dodjele="2019">Goodreads Choice Award for Horror</nagrada>
+		</knjiga>
+	</pisac>
+	
+	<pisac id="id0000002" wiki_handle="Seanan_McGuire">
+		<ime>Seanan </ime>
+		<prezime>McGuire</prezime>
+		<web_postoji postoji="1" />
+		<web>www.seananmcguire.com</web>
+		<datum_rod>05/01/1978</datum_rod>
+		<mjesto_rod>
+			<mjesto>Martinez, California</mjesto>
+			<drzava>SAD</drzava>
+		</mjesto_rod>
+		<pseudonim_postoji postoji="1" />
+		<pseudonim>
+			<pseudo_ime>Mira </pseudo_ime>
+			<pseudo_prezime>Grant</pseudo_prezime>
+		</pseudonim>
+		<knjiga god_izdanja="2016" isbn="9780765385505" zanr="fantazija" publika="mladi">
+			<naslov>Every Heart a Doorway</naslov>
+			<nagrada_postoji postoji="1" />
+			<nagrada god_dodjele="2017">Hugo Award for Best Novella</nagrada>
+			<nagrada god_dodjele="2016"> Nebula Award for Best Novella</nagrada>
+		</knjiga>
+		<knjiga god_izdanja="2017" isbn="9780316379403" zanr="horor scifi" publika="odrasli">
+			<naslov>Into the Drowning Deep</naslov>
+			<nagrada_postoji postoji="0" />
+		</knjiga>
+	</pisac>
+	
+	<pisac id="id0000003" wiki_handle="Chimamanda_Ngozi_Adichie">
+		<ime>Chimamanda Ngozi </ime>
+		<prezime>Adichie</prezime>
+		<web_postoji postoji="1" />
+		<web>www.chimamanda.com</web>
+		<datum_rod>15/09/1977</datum_rod>
+		<mjesto_rod>
+			<mjesto>Enugu</mjesto>
+			<drzava>Nigeria</drzava>
+		</mjesto_rod>
+		<pseudonim_postoji postoji="0" />
+		<knjiga god_izdanja="2013" isbn="9788535924732" zanr="lijepa" publika="odrasli">
+			<naslov>Americanah</naslov>
+			<nagrada_postoji postoji="1" />
+			<nagrada god_dodjele="2013">Chicago Tribune Heartland Prize for Fiction</nagrada>
+			<nagrada god_dodjele="2013">National Book Critics Circle Award for Fiction</nagrada>
+		</knjiga>
+	</pisac>
+	
+	<pisac id="id0000004" wiki_handle="Markus_Zusak">
+		<ime>Markus </ime>
+		<prezime>Zusak</prezime>
+		<web_postoji postoji="1" />
+		<web>www.zusakbooks.com</web>
+		<datum_rod>23/06/1975</datum_rod>
+		<mjesto_rod>
+			<mjesto>Sydney</mjesto>
+			<drzava>Australija</drzava>
+		</mjesto_rod>
+		<pseudonim_postoji postoji="0" />
+		<knjiga god_izdanja="2006" isbn="9780375831002" zanr="povijesni" publika="mladi">
+			<naslov>The Book Thief</naslov>
+			<nagrada_postoji postoji="1" />
+			<nagrada god_dodjele="2006">National Jewish Book Award for Children’s and Young Adult Literature</nagrada>
+			<nagrada god_dodjele="2007">Book Sense Book of the Year Award for Children's Literature</nagrada>
+			<nagrada god_dodjele="2008">Buxtehuder Bulle</nagrada>
+		</knjiga>
+		<knjiga god_izdanja="2018" isbn="9780385614292" zanr="lijepa" publika="mladi">
+			<naslov>Bridge of Clay</naslov>
+			<nagrada_postoji postoji="1" />
+			<nagrada god_dodjele="2019">Australian Independent Booksellers Indie Book Award for Book of the Year Fiction</nagrada>
+		</knjiga>
+	</pisac>
+	
+	<pisac id="id0000005" wiki_handle="Maggie_Stiefvater">
+		<ime>Maggie </ime>
+		<prezime>Stiefvater</prezime>
+		<web_postoji postoji="1" />
+		<web>maggiestiefvater.com</web>
+		<datum_rod>18/11/1981</datum_rod>
+		<mjesto_rod>
+			<mjesto>Harrisonburg, Virginia</mjesto>
+			<drzava>SAD</drzava>
+		</mjesto_rod>
+		<pseudonim_postoji postoji="0" />
+		<knjiga god_izdanja="2012" isbn="9780545424929" zanr="fantazija" publika="mladi">
+			<naslov>The Raven Boys</naslov>
+			<nagrada_postoji postoji="0" />
+		</knjiga>
+		<knjiga god_izdanja="2009" isbn="9780545123266" zanr="fantazija" publika="mladi">
+			<naslov>Shiver</naslov>
+			<nagrada_postoji postoji="1" />
+			<nagrada god_dodjele="2010">Georgia Peach Book Award</nagrada>
+		</knjiga>
+	</pisac>
+	
+</pisci>

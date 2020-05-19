@@ -18,6 +18,7 @@
 		<nav>
 			<ul>
 				<li><a href="index.html"> POČETNA </a></li>
+				<li><a href="podaci.xml">PODACI</a></li>
 				<li><a href="obrazac.html"> PRETRAŽIVANJE </a></li>
 				<li><a href="https://www.fer.unizg.hr/predmet/or" target="_blank"> OTVORENO RAČUNARSTVO </a></li>
 				<li><a href="http://www.fer.unizg.hr" target="_blank"> FER </a></li>
@@ -26,35 +27,92 @@
 		</nav>
 		
 		<div>
-			<form>
+			<form action="pretraga.php">
 				<table class="obrazac">
 					<tr>
 						<th colspan="2">Pisac</th>
 					</tr>
 					<tr>
 						<td>Ime</td>
-						<td><input type="text" name="ime"></td>
+						<td>
+						<input type="text" name="ime">
+						<input type="checkbox" id="ne_ime" name="ne_ime" value="nema">
+						<label for="ne_ime"> ne sadrži </label>
+						</td>
 					</tr>
 					<tr>
 						<td>Prezime</td>
-						<td><input type="text" name="prezime"></td>
+						<td>
+						<input type="text" name="prezime">
+						<input type="checkbox" id="ne_prezime" name="ne_prezime" value="nema">
+						<label for="ne_prezime"> ne sadrži </label>
+						</td>
 					</tr>
 					<tr>
 						<td>Mjesto</td>
-						<td><input type="text" name="mjesto"></td>
+						<td>
+						<input type="text" name="mjesto">
+						<input type="checkbox" id="ne_mjesto" name="ne_mjesto" value="nema">
+						<label for="ne_mjesto"> ne sadrži </label>
+						</td>
 					</tr>
 					<tr>
 						<td>Država</td>
-						<td><input type="text" name="drzava"></td>
+						<td>
+						<input type="text" name="drzava">
+						<input type="checkbox" id="ne_drzava" name="ne_drzava" value="nema">
+						<label for="ne_drzava"> ne sadrži </label>
+						</td>
+					</tr>
+					<tr>
+						<td>Starost</td>
+						<td>
+							<input type="radio" id="manje_od_20" name="starost" value="manje_od_20">
+							<label for="manje_od_20"> &lt20 </label>
+							<input type="radio" id="20_30" name="starost" value="20_30">
+							<label for="20_30"> 20-30 </label>
+							<input type="radio" id="31_40" name="starost" value="31_40">
+							<label for="31_40"> 31-40 </label>
+							<br>
+							<input type="radio" id="41_50" name="starost" value="41_50">
+							<label for="41_50"> 41-50 </label>
+							<input type="radio" id="51_60" name="starost" value="51_60">
+							<label for="51_60"> 51-60 </label>
+							<input type="radio" id="vise_od_60" name="starost" value="vise_od_60">
+							<label for="vise_od_60"> &gt60 </label>
+						</td>
+					</tr>
+					<tr>
+						<td>Web stranica</td>
+						<td>
+						<input type="checkbox" id="web_postoji" name="web_postoji[]" value="postoji"> 
+						<label for="vise_od_60"> Postoji </label>  
+						<input type="checkbox" id="web_ne_postoji" name="web_postoji[]" value="ne_postoji"> 
+						<label for="vise_od_60"> Ne postoji </label>
+						</td>
+					</tr>
+					<tr>
+						<td>Pseudonim</td>
+						<td>
+							<input type="checkbox" id="pseudo_postoji" name="pseudo_postoji" value="postoji">
+							<input type="text" name="pseudo_ime"> 
+							<input type="text" name="pseudo_prezime">
+						</td>
 					</tr>
 					<tr>
 						<td>Nagrada</td>
-						<td><input type="text" name="nagrada"></td>
+						<td>
+						<input type="checkbox" id="nagrada_postoji" name="nagrada_postoji" value="postoji"> 
+						<input type="text" name="nagrada">
+						<input type="checkbox" id="ne_nagrada" name="ne_nagrada" value="nema">
+						<label for="ne_nagrada"> ne sadrži </label>
+						</td>
 					</tr>
 					<tr>
 						<td>Godina dodjele nagrade</td>
 						<td>
 							<select id="godina_nagrade" name="godina_nagrade">
+								<option value="----">----</option>
 								<option value="2020">2020</option>
 								<option value="2019">2019</option>
 								<option value="2018">2018</option>
@@ -87,12 +145,17 @@
 					</tr>
 					<tr>
 						<td>Naslov</td>
-						<td><input type="text" name="naslov"></td>
+						<td>
+						<input type="text" name="naslov">
+						<input type="checkbox" id="ne_naslov" name="ne_naslov" value="nema">
+						<label for="ne_naslov"> ne sadrži </label>
+						</td>
 					</tr>
 					<tr>
 						<td>Godina izdanja</td>
 						<td>
 							<select id="godina_izdanja" name="godina_izdanja">
+								<option value="----">----</option>
 								<option value="2020">2020</option>
 								<option value="2019">2019</option>
 								<option value="2018">2018</option>
@@ -120,37 +183,26 @@
 					<tr>
 						<td>Publika</td>
 						<td>
-							<input type="radio" id="odrasli" name="publika" value="odrasli">
+							<input type="checkbox" id="odrasli" name="publika[]" value="odrasli">
 							<label for="odrasli">Odrasli</label>
-							<input type="radio" name="publika" id="mladi" value="mladi">
+							<input type="checkbox" name="publika[]" id="mladi" value="mladi">
 							<label for="mladi">Mladi</label>
-							<input type="radio" name="publika" id="djeca" value="djeca">
+							<input type="checkbox" name="publika[]" id="djeca" value="djeca">
 							<label for="djeca">Djeca</label>
 						</td>
 					</tr>
 					<tr>
 						<td>Žanr</td>
 						<td>
-							<input type="checkbox" id="horor" name="zanr" value="horor">
-							<label for="horor">Horor</label>
-							<br>
-							<input type="checkbox" id="ljubavni" name="zanr" value="ljubavni">
-							<label for="ljubavni">Ljubavni roman</label>
-							<br>
-							<input type="checkbox" id="scifi" name="zanr" value="scifi">
-							<label for="scifi">Znanstvena fantastika</label>
-							<br>
-							<input type="checkbox" id="fantazija" name="zanr" value="fantazija">
-							<label for="fantazija">Fantazija</label>
-							<br>
-							<input type="checkbox" id="triler" name="zanr" value="triler">
-							<label for="triler">Triler</label>
-							<br>
-							<input type="checkbox" id="povijesni" name="zanr" value="povijesni">
-							<label for="povijesni">Povijesni roman</label>
-							<br>
-							<input type="checkbox" id="lijepa" name="zanr" value="lijepa">
-							<label for="lijepa">Lijepa književnost</label>
+							<select name="zanr[]" id="zanr" multiple>
+								<option value="horor">Horor</option>
+								<option value="ljubavni">Ljubavni roman</option>
+								<option value="scifi">Znanstvena fantastika</option>
+								<option value="fantazija">Fantazija</option>
+								<option value="triler">Triler</option>
+								<option value="povijesni">Povijesni roman</option>
+								<option value="lijepa">Lijepa književnost</option>
+							</select>
 						</td>
 					</tr>
 					<tr>
