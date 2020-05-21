@@ -28,6 +28,10 @@ $svi_podaci = $xpath->query("/pisci/pisac");
 		<title>Svijet pisaca</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href="dizajn.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="detalji.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 	</head>
 
 	<body>
@@ -49,27 +53,31 @@ $svi_podaci = $xpath->query("/pisci/pisac");
 			</ul>
 		</nav>
 				
-		<div>
+		<div id="glavna">
 		
 			<?php
 			
 				$pronadeno = count($rezultat);
 				$ukupno = count($svi_podaci);
 				print "Pronađeno $pronadeno od ukupno $ukupno rezultata.";
+				
+				foreach ($rezultat as $pisac) {
+					$handle = $pisac->getAttribute("wiki_handle");
+					$handles[] = $handle;
+				}
+				
+				$odgovor = preuzmiMediaWikiAction($handles);
 			?>
 			
 			<table id="tablica">
 				<tr>
 					<th>Slika</th>
 					<th>Ime i prezime</th>
-					<!-- <th>Web</th> -->
 					<th>Datum rođenja</th>
 					<th>Mjesto rođenja</th>
-					<th>Koordinate (Wikimedia)</th>
-					<th>Koordinate (Nominatim)</th>
-					<!-- <th>Pseudonim</th> -->
-					<th>Knjige</th>
+					<th>Alma mater</th>
 					<th>Sažetak</th>
+					<th>Akcija</th>
 					
 				</tr>
 	
@@ -79,67 +87,58 @@ $svi_podaci = $xpath->query("/pisci/pisac");
 					$wiki = $cvor->getAttribute("wiki_handle");
 					$wikimedia = preuzmiWikimedia($wiki);
 								
-					echo "<tr><td>";
+					echo "<tr onmouseover='promijeniBojuRetka(this)'><td>";
 					$url_slike = $wikimedia['originalimage']['source'];
-					echo "<img id=\"wiki_slika\" src=\"$url_slike\" alt=\"Slika pisca\" width=\"128\" />";
+					echo "<img id=\"wiki_slika\" src=\"$url_slike\" alt=\"Slika pisca\" height=\"100\" />";
 					
 					echo "</td><td>";
-					print($cvor->getElementsByTagName('ime')->item(0)->nodeValue);
-					echo " ";
-					print($cvor->getElementsByTagName('prezime')->item(0)->nodeValue);
-					//echo "</td><td>";
-					//print($cvor->getElementsByTagName('web')->item(0)->nodeValue);
+					$ime = $cvor->getElementsByTagName('ime')->item(0)->nodeValue;
+					$prezime = $cvor->getElementsByTagName('prezime')->item(0)->nodeValue;
+					$ime_prezime = $ime . " " . $prezime;
+					print($ime_prezime);
 					echo "</td><td>";
 					print($cvor->getElementsByTagName('datum_rod')->item(0)->nodeValue);
 					
 					echo "</td><td>";
-					print (preuzmiMediaWikiAction($wiki));
+					$mjesto = dohvatiLokaciju($wiki, $odgovor);
+					print ($mjesto);
 					
-					echo "</td><td>";
 					$koordinate = izvuciKoordinate(str_replace(" ", "_", $cvor->getElementsByTagName('mjesto')->item(0)->nodeValue));
-					print $koordinate[0];
-					echo "<br>";
-					print $koordinate[1];
+					$koordinate0 = $koordinate[0];
+					$koordinate1 = $koordinate[1];
+					
+					$nominatim = preuzmiNominatim(dohvatiLokaciju($wiki, $odgovor));
+					$nominatim0 = $nominatim[0];
+					$nominatim1 = $nominatim[1];
 					
 					echo "</td><td>";
-					$nominatim = preuzmiNominatim(preuzmiMediaWikiAction($wiki));
-					print $nominatim[0];
-					echo "<br>";
-					print $nominatim[1];
-					
-					echo "</td><td>";
-					
-					/*if (!empty($cvor->getElementsByTagName('pseudo_ime')->item(0)->nodeValue)) {
-						print($cvor->getElementsByTagName('pseudo_ime')->item(0)->nodeValue);
-						echo " ";
-						print($cvor->getElementsByTagName('pseudo_prezime')->item(0)->nodeValue);
-					} else {
-						print "-";
-					}
-					
-					echo "</td><td>";*/
-					
-					foreach ($cvor->childNodes as $dijete) {
-						if ($dijete->nodeName == "knjiga") {
-							print ($dijete->getElementsByTagName('naslov')->item(0)->nodeValue);
-							echo " (";
-							print ($dijete->getAttribute("god_izdanja"));
-							echo ")<br />";
-						}
-					}
+					print (preuzmiMediaWikiActionDodatno($wiki));
 					
 					echo "</td><td width=\"200px\">";
 					print (oblikujSazetak($wikimedia['extract']));
+					
+					echo "</td><td>";
+					$id_podatka = $cvor->getAttribute("id");
+					$vise = "vise" . $id_podatka;
+					$ucitavanje = "ucitavanje" . $id_podatka;
+					echo "<button id='$vise' class='btn' onclick='pokaziDetalje(\"$id_podatka\", $koordinate0, $koordinate1, $nominatim0, $nominatim1, \"$ime_prezime\")'><i class='material-icons'>info</i></button>";
+					echo "<img id='$ucitavanje' src='slike/loading.gif' alt='Loading' style='display:none;height:75px' />";
 					echo "</td></tr>";
 
 				}
 			?>
 	
 			</table>
+			
+			<div id="div_karta">
+			</div>
+		</div>
+		
+		<div id="detalji">
 		</div>
 	</body>
 			
 	<footer>
-		<p>Autor: Nika Gibanica</p>
+		<p>&copy Nika Gibanica</p>
 	</footer>
 </html>

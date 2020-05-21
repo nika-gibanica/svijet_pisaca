@@ -249,26 +249,37 @@ function izvuciKoordinate($mjesto){
 	return $koordinate;
 }
 
-function preuzmiMediaWikiAction ($handle) {
-	$json = file_get_contents('https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&rvsection=0&titles=' . $handle . '&format=json', false, kontekst());
+function preuzmiMediaWikiAction ($handles) {
+	$titles = implode("|", $handles);
+	$json = file_get_contents('https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&rvsection=0&titles=' . $titles . '&format=json', false, kontekst());
 	$odgovor = json_decode($json, true);
-	$pages = $odgovor['query']['pages'];
-	$indeksirano = array_values($pages);
-	$broj = $indeksirano[0];
-	$za_parsiranje = $broj['revisions']['0']['*'];
 	
-	$dijelovi = explode("|", $za_parsiranje);
-	foreach ($dijelovi as $dio) {
-		if(preg_match("/birth_place/", $dio)) {
-			$trazeno = $dio;
-			break;
+	return $odgovor;	
+}
+
+function dohvatiLokaciju ($handle, $odgovor) {
+	$pages = $odgovor['query']['pages'];
+	$ime_prezime = str_replace("_", " ", $handle);
+	$lokacija = "-";
+	
+	foreach ($pages as $page) {
+		if ($ime_prezime == $page['title']) {
+			$za_parsiranje = $page['revisions']['0']['*'];
+	
+			$dijelovi = explode("|", $za_parsiranje);
+			foreach ($dijelovi as $dio) {
+				if(preg_match("/birth_place/", $dio)) {
+					$trazeno = $dio;
+					break;
+				}
+			}
+	
+			$trazeno = str_replace("[", "", $trazeno);
+			$trazeno = str_replace ("]", "", $trazeno);
+			$trazeno = str_replace(".", "", $trazeno);
+			$lokacija = preg_replace("/birth_place\s+=\s+/", "", $trazeno);
 		}
 	}
-	
-	$trazeno = str_replace("[", "", $trazeno);
-	$trazeno = str_replace ("]", "", $trazeno);
-	$trazeno = str_replace(".", "", $trazeno);
-	$lokacija = preg_replace("/birth_place\s+=\s+/", "", $trazeno);
 
 	return $lokacija;
 }
@@ -299,6 +310,30 @@ function preuzmiNominatim($adr) {
 	
 	$koordinate = array($sirina, $duzina);
 	return $koordinate;
+}
+
+function preuzmiMediaWikiActionDodatno($handle) {
+	$json = file_get_contents('https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&rvsection=0&titles=' . $handle . '&format=json', false, kontekst());
+	$odgovor = json_decode($json, true);
+	$pages = $odgovor['query']['pages'];
+	$indeksirano = array_values($pages);
+	$broj = $indeksirano[0];
+	$za_parsiranje = $broj['revisions']['0']['*'];
+	
+	$dijelovi = explode("|", $za_parsiranje);
+	foreach ($dijelovi as $dio) {
+		if(preg_match("/alma_mater/", $dio)) {
+			$trazeno = $dio;
+			break;
+		}
+	}
+	
+	$trazeno = str_replace("[", "", $trazeno);
+	$trazeno = str_replace ("]", "", $trazeno);
+	$trazeno = str_replace(".", "", $trazeno);
+	$almamater = preg_replace("/alma_mater\s+=\s+/", "", $trazeno);
+	
+	return $almamater;
 }
 
 ?>

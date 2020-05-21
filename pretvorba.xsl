@@ -29,7 +29,7 @@
 					</ul>
 				</nav>
 				
-				<div>
+				<div id="glavna">
 					<table id="tablica">
 						<tr>
 							<th>Ime i prezime</th>
@@ -81,11 +81,14 @@
 						</xsl:for-each>
 					</table>
 				</div>
+				
+				<div id="detalji">
+				</div>
+				
+				<footer>
+					<p>&copy Nika Gibanica</p>
+				</footer>
 			</body>
-			
-			<footer>
-				<p>Autor: Nika Gibanica</p>
-			</footer>
 		</html>
 	</xsl:template>
 </xsl:stylesheet>

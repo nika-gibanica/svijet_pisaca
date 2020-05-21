@@ -1,11 +1,16 @@
 body {
 	display: grid;
-	grid-template-columns: 300px auto;
+	grid-template-columns: 275px auto;
+	grid-template-areas:
+    'header header'
+    'nav main'
+    'detail main'
+	'detail footer';
 	grid-gap: 15px;
 }
 
-header {
-	grid-area: 1/1/span 1/span 2;
+body > header {
+	grid-area: header;
 	display: grid;
 	grid-template: 250px/250px auto;
 	background-color: thistle;
@@ -38,8 +43,8 @@ header h1 {
 	border: 2px solid black;
 }
 
-nav {
-	grid-area: 2/1/span 2/span 1;
+body > nav {
+	grid-area: nav;
 	background-color: thistle;
 }
 
@@ -66,10 +71,16 @@ a:hover {
 	color: thistle;
 }
 
-div {
-	grid-area: 2/2/span 1/span 1;
-	display: grid;
+body > #glavna {
+	grid-area: main;
 	font-family: "Trebuchet MS";
+}
+
+body > #detalji {
+	grid-area: detail;
+	background-color: thistle;
+	font-family: "Trebuchet MS";
+	color: linen;
 }
 
 .uvod {
@@ -128,6 +139,8 @@ ul li {
 #tablica th {
 	background-color: dimgray;
 	color: linen;
+	min-width: 100px;
+	height: 30px;
 }
 
 #tablica tr:nth-child(even) {
@@ -191,8 +204,60 @@ input[type=submit]:hover, input[type=reset]:hover {
 	color: thistle;
 }
 
-footer {
-	grid-area: 3/2/span 1/span 1;
+.material-icons {
+	color: white;
+	justify-self: center;
+}
+
+.btn {
+	background-color: dimgray;
+	border: none;
+	width: 40px;
+	height: 40px;
+}
+
+.btn:hover {
+  background-color: thistle;
+}
+
+#ucitavanje {
+	border: none;
+	width: 40px;
+	height: 40px;
+}
+
+.naziv_podatka {
+	background-color: dimgray;
+	color: linen;
+}
+
+#detalj {
+	text-align: center;
+	margin: auto;
+	font-size: 20 px;
+	border: 1px solid dimgray;
+}
+
+#detalj th, #detalj td {
+	border: 1px solid dimgray;
+}
+
+h4 {
+	color: dimgray;
+	font-size: 30 px;
+	font-family: "Trebuchet MS";
+	text-align: center;
+}
+
+#karta {
+	display: none;
+	min-height: 300px;
+	max-width: 700px;
+	margin: auto;
+}
+
+body > footer {
+	grid-area: footer;
 	text-align: center;
 	background-color: thistle;
 	font-family: "Trebuchet MS";
