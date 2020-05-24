@@ -77,6 +77,7 @@ $svi_podaci = $xpath->query("/pisci/pisac");
 					<th>Mjesto rođenja</th>
 					<th>Alma mater</th>
 					<th>Sažetak</th>
+					<th>Goodreads</th>
 					<th>Akcija</th>
 					
 				</tr>
@@ -85,6 +86,7 @@ $svi_podaci = $xpath->query("/pisci/pisac");
 				
 				foreach ($rezultat as $cvor) {
 					$wiki = $cvor->getAttribute("wiki_handle");
+					$id_podatka = $cvor->getAttribute("id");
 					$wikimedia = preuzmiWikimedia($wiki);
 								
 					echo "<tr onmouseover='promijeniBojuRetka(this)'><td>";
@@ -118,7 +120,18 @@ $svi_podaci = $xpath->query("/pisci/pisac");
 					print (oblikujSazetak($wikimedia['extract']));
 					
 					echo "</td><td>";
-					$id_podatka = $cvor->getAttribute("id");
+					$gr_info = GoodreadsAPI($id_podatka);
+					$fanovi = $gr_info[0];
+					$gr_author = $gr_info[1];
+					$gr_link = $gr_info[2];
+					if ($gr_author == "true") {
+						echo "<a href=\"$gr_link\"><img id=\"gr_logo\" src=\"slike/GoodreadsAuthor.png\" alt=\"Goodreads author logo\" height=\"30\" /></a>";
+					}
+					
+					echo "<br>Broj fanova:<br>";
+					print($fanovi);
+					
+					echo "</td><td>";
 					$vise = "vise" . $id_podatka;
 					$ucitavanje = "ucitavanje" . $id_podatka;
 					echo "<button id='$vise' class='btn' onclick='pokaziDetalje(\"$id_podatka\", $koordinate0, $koordinate1, $nominatim0, $nominatim1, \"$ime_prezime\")'><i class='material-icons'>info</i></button>";

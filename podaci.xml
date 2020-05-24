@@ -3,7 +3,7 @@
 <?xml-stylesheet type="text/xsl" href="pretvorba.xsl"?>
 
 <pisci>
-	<pisac id="id0000001" wiki_handle="Stephen_King">
+	<pisac id="id0003389" wiki_handle="Stephen_King">
 		<ime>Stephen </ime>
 		<prezime>King</prezime>
 		<web_postoji postoji="1" />
@@ -35,7 +35,7 @@
 		</knjiga>
 	</pisac>
 	
-	<pisac id="id0000002" wiki_handle="Seanan_McGuire">
+	<pisac id="id2860219" wiki_handle="Seanan_McGuire">
 		<ime>Seanan </ime>
 		<prezime>McGuire</prezime>
 		<web_postoji postoji="1" />
@@ -62,7 +62,7 @@
 		</knjiga>
 	</pisac>
 	
-	<pisac id="id0000003" wiki_handle="Chimamanda_Ngozi_Adichie">
+	<pisac id="id0011291" wiki_handle="Chimamanda_Ngozi_Adichie">
 		<ime>Chimamanda Ngozi </ime>
 		<prezime>Adichie</prezime>
 		<web_postoji postoji="1" />
@@ -81,7 +81,7 @@
 		</knjiga>
 	</pisac>
 	
-	<pisac id="id0000004" wiki_handle="Markus_Zusak">
+	<pisac id="id0011466" wiki_handle="Markus_Zusak">
 		<ime>Markus </ime>
 		<prezime>Zusak</prezime>
 		<web_postoji postoji="1" />
@@ -106,7 +106,7 @@
 		</knjiga>
 	</pisac>
 	
-	<pisac id="id0000005" wiki_handle="Maggie_Stiefvater">
+	<pisac id="id1330292" wiki_handle="Maggie_Stiefvater">
 		<ime>Maggie </ime>
 		<prezime>Stiefvater</prezime>
 		<web_postoji postoji="1" />

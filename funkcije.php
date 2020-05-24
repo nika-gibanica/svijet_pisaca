@@ -336,4 +336,34 @@ function preuzmiMediaWikiActionDodatno($handle) {
 	return $almamater;
 }
 
+function GoodreadsAPI($id) {
+	$dev_key = "CdsIUeYrb76jUg5GNGQ";
+	$gr_id = preg_replace("/id[0]*/", "", $id);
+	
+	$xml = simplexml_load_string(file_get_contents("https://www.goodreads.com/author/show/" . $gr_id . "?format=xml&key=" . $dev_key, false, kontekst()));
+	$podaci = $xml->children();
+
+	foreach ($podaci as $p) {
+		if ($p->getName() == "author") {
+			foreach($p->children() as $ch) {
+				if ($ch->getName() == "author_followers_count") {
+					$fan = $ch->__toString();
+				} elseif ($ch->getName() == "goodreads_author") {
+					$gr_auth = $ch->__toString();
+				} elseif ($ch->getName() == "link") {
+					$link = $ch->__toString();
+					$link = str_replace("[", "", $link);
+					$link = str_replace(" ", "", $link);
+					$link = preg_replace("/<!CDATA/", "", $link);
+				}
+			}
+			break;
+		}
+	}
+	
+	$info = array($fan, $gr_auth, $link);
+	return $info;
+	
+}
+
 ?>
